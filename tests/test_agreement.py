@@ -147,6 +147,7 @@ def test_pairwise_disagreement_boundaries():
     assert pairwise_disagreement({"u": {"a": 1, "b": 1}}) == 0.0
     assert pairwise_disagreement({"u": {"a": 1, "b": 2, "c": 3}}) == 1.0
     for data in ({}, {"u": {}}, {"u": {"a": 1}}):
+        assert math.isnan(percent_agreement(data).value)
         assert math.isnan(pairwise_disagreement(data))
 
 
